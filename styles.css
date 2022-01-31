@@ -20,6 +20,17 @@ button:hover{
 
 button svg{
     outline: none;
+    height: 26px;
+    position: relative;
+    top: 3px;
+    left: 1px;
+}
+
+#play-icon{
+    background-color: #F9F5F2;
+    border-radius: 50%;
+    width: 46px;
+    height: 46px;
 }
 
 .ytp-play-button {
@@ -31,6 +42,28 @@ button svg{
     cursor: pointer;
     opacity: 1;
  }
+
+ #audio-player-container {
+    --seek-before-width: 0%;
+      --volume-before-width: 100%;
+      --buffered-width: 0%;
+      position: relative;
+      margin: 100px 2.5% auto 2.5%;
+      width: 95%;
+      max-width: 730px;
+      height: 132px;
+      background: #fff;
+  }
+  #audio-player-container::before {
+      position: absolute;
+      content: '';
+      width: calc(100% + 4px);
+      height: calc(100% + 4px);
+      left: -2px;
+      top: -2px;
+      /* background: linear-gradient(to left, #007db5, #ff8a00); */
+      z-index: -1;
+  }
 
  input[type="range"] {
     position: relative;
@@ -45,29 +78,29 @@ button svg{
   }
   input[type="range"]::-webkit-slider-runnable-track {
     width: 100%;
-    height: 3px;
+    height: 1px;
     cursor: pointer;
-    background: linear-gradient(to right, rgba(0, 125, 181, 0.6) var(--buffered-width), rgba(0, 125, 181, 0.2) var(--buffered-width));
+    background: linear-gradient(to right, #42676B var(--buffered-width),  #C4C4C4 var(--buffered-width));
   }
   input[type="range"]::before {
     position: absolute;
     content: "";
-    top: 8px;
+    top: 9px;
     left: 0;
     width: var(--seek-before-width);
-    height: 3px;
-    background-color: #007db5;
+    height: 1px;
+    background-color: #42676B;
     cursor: pointer;
   }
   input[type="range"]::-webkit-slider-thumb {
     position: relative;
     -webkit-appearance: none;
     box-sizing: content-box;
-    border: 1px solid #007db5;
-    height: 15px;
-    width: 15px;
+    /* border: 1px solid #007db5; */
+    height: 0px;
+    width: 0px;
     border-radius: 50%;
-    background-color: #fff;
+    background-color: #C4C4C4;
     cursor: pointer;
     margin: -7px 0 0 0;
   }
@@ -93,7 +126,7 @@ button svg{
     height: 15px;
     width: 15px;
     border-radius: 50%;
-    background-color: #fff;
+    background-color: #C4C4C4;
     cursor: pointer;
   }
   input[type="range"]:active::-moz-range-thumb {
@@ -120,10 +153,22 @@ button svg{
     height: 15px;
     width: 15px;
     border-radius: 50%;
-    background-color: #fff;
+    background-color: #C4C4C4;
     cursor: pointer;
   }
   input[type="range"]:active::-ms-thumb {
     transform: scale(1.2);
     background: #007db5;
+  }
+
+  .time{
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      font-family: "Helvetica";
+  }
+
+  #time-divider{
+      position: relative;
+      top: 2px;
+      padding: 0 3px;
   }

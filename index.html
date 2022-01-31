@@ -12,14 +12,17 @@
     <h2 class="cta">Listen to this Story</h2>
 
 
-    <h2>Morphing Pause/Resume SVG Icon</h2>
+    <div id="audio-player-container">
+    <audio src="https://assets.codepen.io/4358584/Anitek_-_Komorebi.mp3" preload="metadata">
+    </audio>
 
-    <button class="ytp-play-button ytp-button" aria-live="assertive" tabindex="32" aria-label="Pause">
-       <svg width="100%" height="100%" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <button id="play-icon" class="ytp-play-button ytp-button" aria-live="assertive" tabindex="32" aria-label="Pause">
+       <svg width="100%" fill="#42676B" height="100%" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
-             <path id="ytp-12" d="M 11 10 L 17 10 L 17 26 L 11 26 M 20 10 L 26 10 L 26 26 L 20 26">
-                <animate id="animation" begin="indefinite" attributeType="XML" attributeName="d" fill="freeze" from="M11,10 L17,10 17,26 11,26 M20,10 L26,10 26,26 20,26" to="M11,10 L18,13.74 18,22.28 11,26 M18,13.74 L26,18 26,18 18,22.28" dur="0.1s" keySplines=".4 0 1 1"
-                repeatCount="1"></animate>
+             <path id="ytp-12" d="M11,10 L18,13.74 18,22.28 11,26 M18,13.74 L26,18 26,18 18,22.28">
+                <animate id="animation" begin="indefinite" attributeType="XML" attributeName="d" fill="freeze" from="M11,10 L18,13.74 18,22.28 11,26 M18,13.74 L26,18 26,18 18,22.28" to="M11,10 L17,10 17,26 11,26 M20,10 L26,10 26,26 20,26"  dur="0.1s" keySplines=".4 0 1 1"
+                repeatCount="0"></animate>
              </path>
           </defs>
           <use xlink:href="#ytp-12" class="ytp-svg-shadow"></use>
@@ -27,10 +30,10 @@
        </svg>
     </button>
 
-    <span id="current-time" class="time">0:00</span>
+    <span id="current-time" class="time">0:00</span><span id="time-divider"> / </span>
         <input type="range" id="seek-slider" max="100" value="0">
     <span id="duration" class="time">0:00</span>
-
+   </div>
     <script src="script.js"></script>
 
 </body>
