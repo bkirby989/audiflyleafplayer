@@ -17,8 +17,12 @@ const durationContainer = document.getElementById('duration');
 const currentTimeContainer = document.getElementById('current-time');
 let raf = null;
 const playIconContainer = document.getElementById('play-icon');
-let playState = 'play';
+const muteIconContainer = document.getElementById('mute-icon');
+const skipFowardContainer = document.getElementById('skip-forward');
+const skipBackContainer = document.getElementById('skip-back');
 
+let playState = 'play';
+let muteState = false;
 
 
 const calculateTime = (secs) => {
@@ -83,7 +87,22 @@ playIconContainer.addEventListener('click', () => {
    }
  });
 
- 
+ muteIconContainer.addEventListener('click', () => {
+  if(muteState) {
+    audio.muted = false;
+  } else {
+    audio.muted = true;
+  }
+  muteState = !muteState;
+});
+
+skipFowardContainer.addEventListener('click', () => {
+  audio.currentTime = audio.currentTime + 10;
+});
+
+skipBackContainer.addEventListener('click', () => {
+  audio.currentTime = audio.currentTime - 10;
+});
 
  audio.addEventListener('timeupdate', () => {
    seekSlider.value = Math.floor(audio.currentTime);

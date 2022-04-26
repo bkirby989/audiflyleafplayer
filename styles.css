@@ -50,7 +50,7 @@ button svg{
       position: relative;
       width: 95%;
       max-width: 730px;
-      height: 132px;
+      height: auto;
       background: #fff;
       display: flex;
       flex-direction: horizontal;
